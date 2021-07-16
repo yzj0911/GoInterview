@@ -12,10 +12,17 @@ func main() {
 	//	go add(i)
 	//}
 	//wg.Wait()
-	a := make(chan int, 0)
-	a <- 1
-	b := <-a
-	fmt.Println(b)
+	//a := make(chan int, 0)
+	//a <- 1
+	//b := <-a
+	//fmt.Println(b)
+
+
+
+	var m =make(map[int]string,1)
+	m[1]="!"
+	m[2]="11"
+	fmt.Println(m)
 }
 
 var lock sync.Mutex

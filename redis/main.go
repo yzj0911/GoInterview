@@ -27,7 +27,7 @@ func main() {
 	//	fmt.Println(err)
 	//	return
 	//}
-	//r, err := redis.Int(c.Do("get", "abc"))
+	//r, err := redis.Int(c.Do("getXlsx", "abc"))
 	//fmt.Println(r)
 	c, err := redis.Dial("tcp", "localhost:6379")
 	if err != nil {
@@ -65,7 +65,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	setRes, err := redis.Int(c.Do("get", "a"))
+	setRes, err := redis.Int(c.Do("getXlsx", "a"))
 	if err != nil {
 		fmt.Println(err)
 		return
