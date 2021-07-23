@@ -25,6 +25,8 @@ github.com/cihub/seelog/archive
 github.com/cihub/seelog/archive/gzip
 github.com/cihub/seelog/archive/tar
 github.com/cihub/seelog/archive/zip
+# github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
+## explicit
 # github.com/coreos/etcd v3.3.25+incompatible
 github.com/coreos/etcd/auth/authpb
 github.com/coreos/etcd/clientv3
@@ -250,6 +252,8 @@ github.com/jinzhu/now
 github.com/json-iterator/go
 # github.com/julienschmidt/httprouter v1.3.0
 github.com/julienschmidt/httprouter
+# github.com/karlkfi/inject v0.0.0-20190704175410-86d2a962209d
+## explicit
 # github.com/kavu/go_reuseport v1.5.0
 github.com/kavu/go_reuseport
 # github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd
@@ -453,7 +457,6 @@ github.com/smallnest/rpcx/util
 github.com/soheilhy/cmux
 # github.com/streadway/amqp v1.0.0
 ## explicit
-github.com/streadway/amqp
 # github.com/tealeg/xlsx v1.0.5
 ## explicit
 github.com/tealeg/xlsx

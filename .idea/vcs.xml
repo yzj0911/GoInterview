@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/exectl/go-interview" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-design-pattern" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/inject" vcs="Git" />
   </component>
 </project>
