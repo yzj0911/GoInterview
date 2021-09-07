@@ -15,6 +15,7 @@ require (
 	github.com/evanphx/json-patch v4.9.0+incompatible
 	github.com/extrame/ole2 v0.0.0-20160812065207-d69429661ad7 // indirect
 	github.com/extrame/xls v0.0.1
+	github.com/fsnotify/fsnotify v1.4.9
 	github.com/garyburd/redigo v1.6.2
 	github.com/gin-gonic/gin v1.7.2 // indirect
 	github.com/go-redis/redis v6.14.2+incompatible
@@ -40,6 +41,7 @@ require (
 	github.com/rpcx-ecosystem/rpcx-examples3 v1.1.6
 	github.com/rpcxio/rpcx-examples v1.1.6 // indirect
 	github.com/smallnest/rpcx v1.6.2
+	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/pflag v1.0.5
 	github.com/streadway/amqp v1.0.0 // indirect
@@ -47,11 +49,13 @@ require (
 	github.com/zngw/kafka v0.0.0-20191214161347-4191e5f8683f
 	github.com/zngw/log v0.0.0-20200327115753-04ba41d5c8f8
 	go.etcd.io/bbolt v1.3.6
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
+	golang.org/x/net v0.0.0-20210614182718-04defd469f4e
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	google.golang.org/genproto v0.0.0-20210701191553-46259e63a0a9 // indirect
 	google.golang.org/grpc v1.39.0
 	google.golang.org/protobuf v1.27.1
+	gorm.io/driver/sqlite v1.1.4
+	gorm.io/gorm v1.21.13
 	k8s.io/api v0.21.3
 	k8s.io/apimachinery v0.21.3
 	k8s.io/cli-runtime v0.21.3
@@ -60,6 +64,7 @@ require (
 	k8s.io/klog/v2 v2.10.0
 	k8s.io/kubectl v0.21.3
 	k8s.io/utils v0.0.0-20210722164352-7f3ee0f31471
+	xorm.io/xorm v1.1.2 // indirect
 )
 
 replace github.com/Luxurioust/excelize => github.com/360EntSecGroup-Skylar/excelize v1.4.1

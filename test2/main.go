@@ -18,7 +18,6 @@ func main() {
 	//fmt.Println(b)
 
 
-
 	var m =make(map[int]string,1)
 	m[1]="!"
 	m[2]="11"

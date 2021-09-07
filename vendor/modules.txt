@@ -94,6 +94,7 @@ github.com/extrame/xls
 # github.com/fatih/color v1.9.0
 github.com/fatih/color
 # github.com/fsnotify/fsnotify v1.4.9
+## explicit
 github.com/fsnotify/fsnotify
 # github.com/garyburd/redigo v1.6.2
 ## explicit
@@ -315,9 +316,9 @@ github.com/jcmturner/rpc/v2/ndr
 github.com/jinzhu/gorm
 # github.com/jinzhu/inflection v1.0.0
 github.com/jinzhu/inflection
-# github.com/jinzhu/now v1.1.1
+# github.com/jinzhu/now v1.1.2
 github.com/jinzhu/now
-# github.com/json-iterator/go v1.1.10
+# github.com/json-iterator/go v1.1.11
 github.com/json-iterator/go
 # github.com/julienschmidt/httprouter v1.3.0
 github.com/julienschmidt/httprouter
@@ -474,6 +475,8 @@ github.com/marten-seemann/qtls-go1-15
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.12
 github.com/mattn/go-isatty
+# github.com/mattn/go-sqlite3 v2.0.3+incompatible
+github.com/mattn/go-sqlite3
 # github.com/miekg/dns v1.1.35
 github.com/miekg/dns
 # github.com/mitchellh/go-homedir v1.1.0
@@ -552,6 +555,8 @@ github.com/smallnest/rpcx/protocol
 github.com/smallnest/rpcx/server
 github.com/smallnest/rpcx/share
 github.com/smallnest/rpcx/util
+# github.com/smartystreets/goconvey v1.6.4
+## explicit
 # github.com/soheilhy/cmux v0.1.4
 github.com/soheilhy/cmux
 # github.com/spf13/cobra v1.1.1
@@ -793,6 +798,18 @@ gopkg.in/warnings.v0
 gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 gopkg.in/yaml.v3
+# gorm.io/driver/sqlite v1.1.4
+## explicit
+gorm.io/driver/sqlite
+# gorm.io/gorm v1.21.13
+## explicit
+gorm.io/gorm
+gorm.io/gorm/callbacks
+gorm.io/gorm/clause
+gorm.io/gorm/logger
+gorm.io/gorm/migrator
+gorm.io/gorm/schema
+gorm.io/gorm/utils
 # k8s.io/api v0.21.3
 ## explicit
 k8s.io/api/admission/v1
@@ -1128,5 +1145,7 @@ sigs.k8s.io/structured-merge-diff/v4/typed
 sigs.k8s.io/structured-merge-diff/v4/value
 # sigs.k8s.io/yaml v1.2.0
 sigs.k8s.io/yaml
+# xorm.io/xorm v1.1.2
+## explicit
 # github.com/Luxurioust/excelize => github.com/360EntSecGroup-Skylar/excelize v1.4.1
 # google.golang.org/grpc => google.golang.org/grpc v1.26.0
