@@ -2,7 +2,7 @@
 
 
 * 关闭selin
-
+aa
   vi /etc/selinux/config
 SELINUX=disabled
 重启
