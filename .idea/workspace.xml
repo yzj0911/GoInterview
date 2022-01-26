@@ -63,7 +63,7 @@
       <recent name="D:\gopath\src\GoInterview\tinyQQ" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build execlt1">
+  <component name="RunManager" selected="Go Build.go build execlt1/quKuaiLian/naivechain">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$" />
@@ -82,13 +82,13 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build execlt1/boltDb" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build execlt1/quKuaiLian/naivechain" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="execlt1/boltDb" />
+      <package value="execlt1/quKuaiLian/naivechain" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/boltDb/main.go" />
+      <filePath value="$PROJECT_DIR$/quKuaiLian/naivechain/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="TestAiXin in execlt1" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -138,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build execlt1/quKuaiLian/naivechain" />
         <item itemvalue="Go Build.go build execlt1" />
         <item itemvalue="Go Test.TestAiXin in execlt1/pgbar" />
         <item itemvalue="Go Test.TestPrintf in execlt1/pgbar" />
         <item itemvalue="Go Test.TestAiXin in execlt1" />
-        <item itemvalue="Go Build.go build execlt1/boltDb" />
       </list>
     </recent_temporary>
   </component>

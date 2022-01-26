@@ -79,7 +79,6 @@ func connectToPeers(peersAddr []string) {
 		initConnection(ws)
 	}
 }
-
 func initConnection(ws *websocket.Conn) {
 	go wsHandleP2P(ws)
 
@@ -91,15 +90,12 @@ func handleBlocks(w http.ResponseWriter, r *http.Request) {
 	bs, _ := json.Marshal(blockchain)
 	w.Write(bs)
 }
-
 func handleMineBlock(w http.ResponseWriter, r *http.Request) {
 	var v struct {
 		Data string `json:"data"`
 	}
 	decoder := json.NewDecoder(r.Body)
 	defer r.Body.Close()
-	fmt.Println("-------------------")
-	log.Println(r.Body)
 	err := decoder.Decode(&v)
 	if err != nil {
 		w.WriteHeader(http.StatusGone)
@@ -111,7 +107,6 @@ func handleMineBlock(w http.ResponseWriter, r *http.Request) {
 	addBlock(block)
 	broadcast(responseLatestMsg())
 }
-
 func handlePeers(w http.ResponseWriter, r *http.Request) {
 	var slice []string
 	for _, socket := range sockets {
@@ -124,14 +119,12 @@ func handlePeers(w http.ResponseWriter, r *http.Request) {
 	bs, _ := json.Marshal(slice)
 	w.Write(bs)
 }
-
 func handleAddPeer(w http.ResponseWriter, r *http.Request) {
 	var v struct {
 		Peer string `json:"peer"`
 	}
 	decoder := json.NewDecoder(r.Body)
 	defer r.Body.Close()
-	log.Println(v)
 	err := decoder.Decode(&v)
 	if err != nil {
 		w.WriteHeader(http.StatusGone)
