@@ -103,7 +103,11 @@ func TestCannelContext(t *testing.T) {
 }
 
 func TestChannelNull(t *testing.T) {
-	cha := make(chan int, 0)
-	cha <- 1
+	cha := make(chan bool, 2)
+	cha<-true
+
+	close(cha)
+	fmt.Println(<-cha)
+	fmt.Println(<-cha)
 	fmt.Println("end")
 }

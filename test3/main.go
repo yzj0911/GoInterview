@@ -1,10 +1,9 @@
-package Test
+package main
 
 import (
 	"crypto/sha1"
 	"encoding/hex"
 	"fmt"
-	"reflect"
 )
 
 const (
@@ -14,19 +13,25 @@ const (
 )
 
 func main() {
-
-	aa := SHA1Pre8Hex("你好")
-	fmt.Println(aa)
-	bb := SHA1Pre8Hex("你好")
-	fmt.Println(bb)
-
-	a := []int{1, 2, 3, 4}
-	b := []int{1, 3, 2, 4}
-	c := []int{1, 2, 3, 4}
-	fmt.Println(reflect.DeepEqual(a, b))
-	fmt.Println(reflect.DeepEqual(a, c))
-	fmt.Printf("%v\n", a)
-	fmt.Printf("%+v\n", a)
+	for _, v := range "INSERT INTO `ac_couponsendtaskofuser` VALUES (1497843050172, 1497842310001, 3327485771016, 2, '', '2021-09-30 14:46:47', 'event', '2021-09-30 14:45:06', '2021-09-30 14:46:47');" {
+		fmt.Print(string(v))
+	}
+	//aa := SHA1Pre8Hex("你好")
+	//fmt.Println(aa)
+	//bb := SHA1Pre8Hex("你好")
+	//fmt.Println(bb)
+	//
+	//a := []int{1, 2, 3, 4}
+	//b := []int{1, 3, 2, 4}
+	//c := []int{1, 2, 3, 4}
+	//fmt.Println(reflect.DeepEqual(a, b))
+	//fmt.Println(reflect.DeepEqual(a, c))
+	//var x struct {
+	//	Name string
+	//}
+	//x.Name = "aaa"
+	//fmt.Printf(fmt.Sprintf("%v\n", x))
+	//fmt.Printf(fmt.Sprintf("%+v\n", x))
 }
 
 // SHA1Pre8Hex 获取字符串经过SHA1，再转化为Hex后的前8位
@@ -38,7 +43,7 @@ func SHA1Pre8Hex(data string) string {
 func BinarySearch(list []int, item int) int {
 	var low int
 	var hight int = len(list) - 1
-	for ; low <= hight; {
+	for low <= hight {
 		mid := (low + hight) / 2
 		guss := list[mid]
 		if guss < item {
