@@ -1,9 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Luxurioust/excelize"
-	"log"
 	"strconv"
 	"time"
 )
@@ -29,13 +26,13 @@ func main() {
 	//	fmt.Println("row[2]: ", row[2])
 	//}
 	//fmt.Println(excelDateToDate(string(style)))
-	f, err := excelize.OpenFile("D:\\gopath\\src\\bi\\xlsx\\计划.xlsx")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(f.GetSheetMap())
-	r,err:=f.Rows("Sheet1")
-	fmt.Println(r)
+	//f, err := excelize.OpenFile("D:\\gopath\\src\\bi\\xlsx\\计划.xlsx")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//fmt.Println(f.GetSheetMap())
+	//r,err:=f.Rows("Sheet1")
+	//fmt.Println(r)
 	//style, err := f.NewStyle(`{"number_format": 0}`)
 	//if err != nil {
 	//	fmt.Println(err)

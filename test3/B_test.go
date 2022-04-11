@@ -6,24 +6,6 @@ import (
 	"testing"
 )
 
-type fn func(x int) (y int)
-
-func func1() []fn {
-	var funlist []fn
-	for i := 0; i < 4; i++ {
-		var func2 = func(x int) (y int) {
-			return i * x
-		}
-		funlist = append(funlist, func2)
-	}
-	return funlist
-}
-func Test_ff(t *testing.T) {
-	for _, fn := range func1() {
-		fmt.Println(fn(2))
-	}
-}
-
 func t(c <-chan string) (string, bool) {
 	a, ok := <-c
 	return a, ok
