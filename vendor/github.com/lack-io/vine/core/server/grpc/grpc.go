@@ -25,8 +25,12 @@ package grpc
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"fmt"
+	"io/ioutil"
 	"net"
+	"net/http"
+	"net/http/pprof"
 	"reflect"
 	"runtime/debug"
 	"sort"
@@ -36,6 +40,7 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/proto"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"golang.org/x/net/netutil"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -176,6 +181,30 @@ func (g *grpcServer) getCredentials() credentials.TransportCredentials {
 		if v, ok := g.opts.Context.Value(tlsAuth{}).(*tls.Config); ok && v != nil {
 			return credentials.NewTLS(v)
 		}
+		if v, ok := g.opts.Context.Value(Grpc2Http{}).(*Grpc2Http); ok && v != nil {
+			cert, err := tls.LoadX509KeyPair(v.CertFile, v.KeyFile)
+			if err != nil {
+				log.Fatalf("tls.LoadX509KeyPair err: %v", err)
+			}
+
+			certPool := x509.NewCertPool()
+			ca, err := ioutil.ReadFile(v.CaFile)
+			if err != nil {
+				log.Fatalf("ioutil.ReadFile err: %v", err)
+			}
+
+			if ok := certPool.AppendCertsFromPEM(ca); !ok {
+				log.Fatalf("certPool.AppendCertsFromPEM err")
+			}
+
+			TLS := &tls.Config{
+				Certificates: []tls.Certificate{cert},
+				ClientAuth:   tls.RequireAndVerifyClientCert,
+				ClientCAs:    certPool,
+			}
+
+			return credentials.NewTLS(TLS)
+		}
 	}
 	return nil
 }
@@ -229,31 +258,31 @@ func (g *grpcServer) handler(svc interface{}, stream grpc.ServerStream) error {
 	// copy the metadata to vine.metadata
 	md := meta.Metadata{}
 	for k, v := range gmd {
-		md[k] = strings.Join(v, ", ")
+		md.Set(k, strings.Join(v, ", "))
 	}
 
 	// timeout for server deadline
-	to := md["timeout"]
+	to, _ := md.Get("timeout")
 
 	// get content type
 	ct := defaultContentType
 
-	if ctype, ok := md["x-content-type"]; ok {
+	if ctype, ok := md.Get("x-content-type"); ok {
 		ct = ctype
 	}
-	if ctype, ok := md["content-type"]; ok {
+	if ctype, ok := md.Get("content-type"); ok {
 		ct = ctype
 	}
 
-	delete(md, "x-content-type")
-	delete(md, "timeout")
+	md.Delete("x-content-type")
+	md.Delete("timeout")
 
 	// create new context
 	ctx := meta.NewContext(stream.Context(), md)
 
 	// get peer from context
 	if p, ok := peer.FromContext(stream.Context()); ok {
-		md["Remote"] = p.Addr.String()
+		md.Set("Remote", p.Addr.String())
 		ctx = peer.NewContext(ctx, p)
 	}
 
@@ -353,13 +382,26 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 			argIsValue = true
 		}
 
-		// Unmarshal request
-		if err := stream.RecvMsg(argv.Interface()); err != nil {
-			return err
-		}
-
 		if argIsValue {
 			argv = argv.Elem()
+		}
+
+		var argvi interface{}
+		switch ct {
+		case "application/proto",
+			"application/protobuf",
+			"application/octet-stream",
+			"application/grpc",
+			"application/grpc+proto":
+			argvi = argv.Interface()
+		case "application/json", "application/grpc+json":
+			vv := argv.Interface()
+			argvi = &vv
+		}
+
+		// Unmarshal request
+		if err := stream.RecvMsg(argvi); err != nil {
+			return err
 		}
 
 		// reply value
@@ -372,7 +414,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 		if err != nil {
 			return errors.InternalServerError(server.DefaultName, err.Error())
 		}
-		b, err := cc.Marshal(argv.Interface())
+		b, err := cc.Marshal(argvi)
 		if err != nil {
 			return err
 		}
@@ -383,7 +425,7 @@ func (g *grpcServer) processRequest(stream grpc.ServerStream, service *service, 
 			contentType: ct,
 			method:      fmt.Sprintf("%s.%s", service.name, mtype.method.Name),
 			body:        b,
-			payload:     argv.Interface(),
+			payload:     argvi,
 		}
 
 		// define the handler func
@@ -899,8 +941,39 @@ func (g *grpcServer) Start() error {
 
 	// vine: go ts.Accept(s.accept)
 	go func() {
-		if err := g.svc.Serve(ts); err != nil {
-			log.Errorf("gRPC Server start error: %v", err)
+		if v := g.Options().Context.Value(Grpc2Http{}); v != nil {
+			gh := v.(*Grpc2Http)
+
+			mux := http.NewServeMux()
+			mux.Handle("/metrics", promhttp.Handler())
+			mux.HandleFunc("/debug/pprof/", pprof.Index)
+			mux.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+			mux.HandleFunc("/debug/pprof/profile", pprof.Profile)
+			mux.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
+			mux.HandleFunc("/debug/pprof/trace", pprof.Trace)
+
+			handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				if r.ProtoMajor == 2 && strings.Contains(r.Header.Get("Content-Type"), "application/grpc") {
+					g.svc.ServeHTTP(w, r)
+					return
+				}
+
+				mux.ServeHTTP(w, r)
+				return
+			})
+
+			s := http.Server{
+				Handler:           handler,
+			}
+
+			if err := s.ServeTLS(ts, gh.CertFile, gh.KeyFile); err != nil {
+				log.Errorf("gRPC Server start error: %v", err)
+			}
+
+		} else {
+			if err := g.svc.Serve(ts); err != nil {
+				log.Errorf("gRPC Server start error: %v", err)
+			}
 		}
 	}()
 

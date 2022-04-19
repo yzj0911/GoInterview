@@ -34,14 +34,10 @@ import (
 	"github.com/lack-io/vine/core/client/selector"
 	"github.com/lack-io/vine/core/registry"
 	"github.com/lack-io/vine/core/server"
-	"github.com/lack-io/vine/core/transport"
 	"github.com/lack-io/vine/lib/cmd"
 	"github.com/lack-io/vine/lib/config"
 	"github.com/lack-io/vine/lib/dao"
-	"github.com/lack-io/vine/lib/debug/profile"
-	"github.com/lack-io/vine/lib/debug/trace"
-	"github.com/lack-io/vine/lib/runtime"
-	"github.com/lack-io/vine/lib/store"
+	"github.com/lack-io/vine/lib/trace"
 )
 
 // Options for vine service
@@ -53,11 +49,7 @@ type Options struct {
 	Server    server.Server
 	Trace     trace.Tracer
 	Dialect   dao.Dialect
-	Store     store.Store
 	Registry  registry.Registry
-	Runtime   runtime.Runtime
-	Transport transport.Transport
-	Profile   profile.Profile
 	Scheduler gscheduler.Scheduler
 
 	// Before and After funcs
@@ -81,10 +73,7 @@ func newOptions(opts ...Option) Options {
 		Client:    client.DefaultClient,
 		Server:    server.DefaultServer,
 		Dialect:   dao.DefaultDialect,
-		Store:     store.DefaultStore,
 		Registry:  registry.DefaultRegistry,
-		Runtime:   runtime.DefaultRuntime,
-		Transport: transport.DefaultTransport,
 		Scheduler: defaultScheduler,
 		Context:   context.Background(),
 		Signal:    true,
@@ -137,13 +126,6 @@ func HandleSignal(b bool) Option {
 	}
 }
 
-// Profile to be used for debug profile
-func Profile(p profile.Profile) Option {
-	return func(o *Options) {
-		o.Profile = p
-	}
-}
-
 // Server to be used for service
 func Server(s server.Server) Option {
 	return func(o *Options) {
@@ -155,13 +137,6 @@ func Server(s server.Server) Option {
 func Dialect(d dao.Dialect) Option {
 	return func(o *Options) {
 		o.Dialect = d
-	}
-}
-
-// Store sets the store to use
-func Store(s store.Store) Option {
-	return func(o *Options) {
-		o.Store = s
 	}
 }
 
@@ -196,24 +171,6 @@ func Config(c config.Config) Option {
 func Selector(s selector.Selector) Option {
 	return func(o *Options) {
 		_ = o.Client.Init(client.Selector(s))
-	}
-}
-
-// Transport sets the transport for the service
-// and the underlying components
-func Transport(t transport.Transport) Option {
-	return func(o *Options) {
-		o.Transport = t
-		// Update Client and Server
-		_ = o.Client.Init(client.Transport(t))
-		_ = o.Server.Init(server.Transport(t))
-	}
-}
-
-// Runtime sets the runtime
-func Runtime(r runtime.Runtime) Option {
-	return func(o *Options) {
-		o.Runtime = r
 	}
 }
 

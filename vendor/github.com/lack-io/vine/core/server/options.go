@@ -31,14 +31,12 @@ import (
 	"github.com/lack-io/vine/core/broker"
 	"github.com/lack-io/vine/core/codec"
 	"github.com/lack-io/vine/core/registry"
-	"github.com/lack-io/vine/core/transport"
 )
 
 type Options struct {
 	Codecs       map[string]codec.NewCodec
 	Broker       broker.Broker
 	Registry     registry.Registry
-	Transport    transport.Transport
 	Metadata     map[string]string
 	Name         string
 	Address      string
@@ -86,10 +84,6 @@ func NewOptions(opt ...Option) Options {
 		opts.Registry = registry.DefaultRegistry
 	}
 
-	if opts.Transport == nil {
-		opts.Transport = transport.DefaultTransport
-	}
-
 	if opts.RegisterCheck == nil {
 		opts.RegisterCheck = DefaultRegisterCheck
 	}
@@ -108,6 +102,9 @@ func NewOptions(opt ...Option) Options {
 
 	if len(opts.Version) == 0 {
 		opts.Version = DefaultVersion
+	}
+	if opts.Context == nil {
+		opts.Context = context.Background()
 	}
 
 	return opts
@@ -178,13 +175,6 @@ func Registry(r registry.Registry) Option {
 	}
 }
 
-// Transport mechanism for communication e.g http, rabbitmq, etc
-func Transport(t transport.Transport) Option {
-	return func(o *Options) {
-		o.Transport = t
-	}
-}
-
 // Metadata associated with the server
 func Metadata(md map[string]string) Option {
 	return func(o *Options) {
@@ -213,26 +203,6 @@ func RegisterInterval(t time.Duration) Option {
 	}
 }
 
-// TLSConfig specifies a *tls.Config
-func TLSConfig(t *tls.Config) Option {
-	return func(o *Options) {
-		// set the internal tls
-		o.TLSConfig = t
-
-		// set the default transport if one is not
-		// already set. Required for Init call below.
-		if o.Transport == nil {
-			o.Transport = transport.DefaultTransport
-		}
-
-		// set the transport tls
-		o.Transport.Init(
-			transport.Secure(true),
-			transport.TLSConfig(t),
-		)
-	}
-}
-
 // WithRouter sets the request router
 func WithRouter(r Router) Option {
 	return func(o *Options) {
@@ -246,9 +216,6 @@ func WithRouter(r Router) Option {
 // wait against it on stop.
 func Wait(wg *sync.WaitGroup) Option {
 	return func(o *Options) {
-		if o.Context == nil {
-			o.Context = context.Background()
-		}
 		if wg == nil {
 			wg = new(sync.WaitGroup)
 		}

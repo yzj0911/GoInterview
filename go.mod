@@ -4,7 +4,6 @@ go 1.16
 
 require (
 	github.com/Shopify/sarama v1.29.1
-	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
 	github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575 // indirect
 	github.com/coreos/etcd v3.3.25+incompatible
 	github.com/denisenkom/go-mssqldb v0.10.0 // indirect
@@ -21,11 +20,12 @@ require (
 	github.com/gohouse/converter v0.0.3
 	github.com/gohouse/gorose v1.0.5
 	github.com/jinzhu/gorm v1.9.16
-	github.com/json-iterator/go v1.1.11 // indirect
-	github.com/lack-io/vine v0.19.3
+	github.com/lack-io/vine v0.20.14
 	github.com/lib/pq v1.10.1 // indirect
 	github.com/lithammer/dedent v1.1.0
+	github.com/lucas-clemente/quic-go v0.19.3 // indirect
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
+	github.com/micro/go-micro v1.18.0
 	github.com/mumushuiding/util v0.0.0-20210203080010-04699a081184
 	github.com/opentracing/opentracing-go v1.1.1-0.20190913142402-a7454ce5950e
 	github.com/qianlnk/pgbar v0.0.0-20210208085217-8c19b9f2477e

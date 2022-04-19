@@ -33,23 +33,17 @@ import (
 	rreg "github.com/lack-io/vine/core/router/registry"
 	"github.com/lack-io/vine/core/server"
 	serverGrpc "github.com/lack-io/vine/core/server/grpc"
-	"github.com/lack-io/vine/core/transport"
-	transportHTTP "github.com/lack-io/vine/core/transport/http"
 	"github.com/lack-io/vine/lib/config"
 	configMemory "github.com/lack-io/vine/lib/config/memory"
 	"github.com/lack-io/vine/lib/dao"
 	daoNop "github.com/lack-io/vine/lib/dao/nop"
-	"github.com/lack-io/vine/lib/debug/trace"
-	traceMem "github.com/lack-io/vine/lib/debug/trace/memory"
-	"github.com/lack-io/vine/lib/store"
-	storeMem "github.com/lack-io/vine/lib/store/memory"
+	"github.com/lack-io/vine/lib/trace"
+	traceMem "github.com/lack-io/vine/lib/trace/memory"
 )
 
 func init() {
 	// default registry
 	registry.DefaultRegistry = mdns.NewRegistry()
-	// default transport
-	transport.DefaultTransport = transportHTTP.NewTransport()
 	// default broker
 	broker.DefaultBroker = http.NewBroker()
 	// default client
@@ -62,8 +56,6 @@ func init() {
 	config.DefaultConfig = configMemory.NewConfig()
 	// default dao
 	dao.DefaultDialect = daoNop.NewDialect()
-	// default store
-	store.DefaultStore = storeMem.NewStore()
 	// default trace
 	trace.DefaultTracer = traceMem.NewTracer()
 }
