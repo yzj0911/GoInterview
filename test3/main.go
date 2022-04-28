@@ -12,7 +12,12 @@ const (
 	a3
 )
 
+func init() {
+
+}
+
 func main() {
+
 	for _, v := range "INSERT INTO `ac_couponsendtaskofuser` VALUES (1497843050172, 1497842310001, 3327485771016, 2, '', '2021-09-30 14:46:47', 'event', '2021-09-30 14:45:06', '2021-09-30 14:46:47');" {
 		fmt.Print(string(v))
 	}
