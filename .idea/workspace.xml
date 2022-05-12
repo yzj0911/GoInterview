@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ead5fa3-c710-4f58-9e17-ead39e38fa41" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/test3/a.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test3/b.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitUpdate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/gitUpdate.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/pgbar_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/pgbar_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/print.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/print.go" afterDir="false" />
@@ -54,13 +53,16 @@
     &quot;RunOnceActivity.go.vendoring.notification.had.been.shown&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;configurable..is.expanded&quot;: &quot;false&quot;,
+    &quot;configurable.GoLibrariesConfigurable.is.expanded&quot;: &quot;true&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/gopath/src/grpc-protobuf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/gopath/src/learngo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.sdk&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -76,7 +78,7 @@
       <recent name="D:\gopath\src\GoInterview\tinyQQ" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 测试.execlt1/test3 中的 TestCA (2)">
+  <component name="RunManager" selected="Go 测试.execlt1/test3 中的 TestCA (3)">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,13 +88,13 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build execlt1/gprc-protobuf/service" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build execlt1/test3" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="execlt1/gprc-protobuf/service" />
+      <package value="execlt1/test3" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/gprc-protobuf/service/main.go" />
+      <filePath value="$PROJECT_DIR$/test3/main.go" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -129,6 +131,18 @@
       <pattern value="^\QTestCA\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="execlt1/test3 中的 TestCA (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoInterview" />
+      <working_directory value="$PROJECT_DIR$/test3" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="execlt1/test3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCA\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="execlt1/test3 中的 TestCA" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$/test3" />
@@ -141,16 +155,13 @@
       <pattern value="^\QTestCA\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 测试.execlt1/test3 中的 TestCA (3)" />
+        <item itemvalue="Go 构建.go build execlt1/test3" />
         <item itemvalue="Go 测试.execlt1/test3 中的 TestCA (2)" />
         <item itemvalue="Go 测试.execlt1/test3 中的 TestCA (1)" />
         <item itemvalue="Go 测试.execlt1/test3 中的 TestCA" />
-        <item itemvalue="Go 构建.go build execlt1/gprc-protobuf/service" />
-        <item itemvalue="HTTP 请求.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -243,11 +254,6 @@
           <url>file://$PROJECT_DIR$/etcd/etcd-service/main.go</url>
           <line>105</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/test3/C_test.go</url>
-          <line>36</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
