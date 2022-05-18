@@ -7,6 +7,7 @@ import (
 
 	"github.com/lack-io/vine"
 )
+
 //protoc -I. --go_out=plugins=grpc:. pb/hello.proto
 type HelloWorld struct {
 }
@@ -16,7 +17,6 @@ func (t *HelloWorld) HelloWorld(ctx context.Context, request *pb.HelloWorldReque
 	fmt.Println(response.Reply)
 	return nil
 }
-
 
 func main() {
 	service := vine.NewService(
