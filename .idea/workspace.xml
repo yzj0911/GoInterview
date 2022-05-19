@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7ead5fa3-c710-4f58-9e17-ead39e38fa41" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mianshi/T1_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Mianshi/T1_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gprc-protobuf/service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gprc-protobuf/service/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/1_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/pgbar_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/pgbar_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/print.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/print.go" afterDir="false" />
@@ -42,22 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Hopeshow",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hopeshow&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\gopath\src\GoInterview\quKuaiLian\naivechain" />
