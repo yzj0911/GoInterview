@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
 	"time"
 )
 
@@ -32,11 +29,11 @@ func main() {
 	//signal包 一个是notify方法用来监听收到的信号；一个是 stop方法用来取消监听。
 	//signal.Stop(c) //不允许继续往c中存入内容
 	//s := <-c
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-	signal.Stop(sig)
-	a := <-sig
-	fmt.Println(a)
-	fmt.Printf("quit (%v)\n", <-sig)
+	//sig := make(chan os.Signal, 1)
+	//signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+	//signal.Stop(sig)
+	//a := <-sig
+	//fmt.Println(a)
+	//fmt.Printf("quit (%v)\n", <-sig)
 	time.Sleep(time.Second * 5)
 }

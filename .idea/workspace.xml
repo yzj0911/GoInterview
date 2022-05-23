@@ -7,6 +7,8 @@
     <list default="true" id="7ead5fa3-c710-4f58-9e17-ead39e38fa41" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/1_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/A_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chanl/Product_Consumer/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/chanl/Product_Consumer/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/pgbar_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/pgbar_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgbar/print.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgbar/print.go" afterDir="false" />
@@ -30,6 +32,10 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/1_test.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/t/t2/main.go" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,6 +55,7 @@
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.vendoring.notification.had.been.shown&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
@@ -72,7 +79,7 @@
       <recent name="D:\gopath\src\GoInterview\tinyQQ" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 测试.execlt1/Mianshi 中的 Test11">
+  <component name="RunManager" selected="Go 构建.go build t/t2">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="GoInterview" />
       <working_directory value="$PROJECT_DIR$" />
@@ -82,16 +89,22 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="Test8 in execlt1/Mianshi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go build execlt1/chanl/Product_Consumer" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoInterview" />
-      <working_directory value="$PROJECT_DIR$/Mianshi" />
-      <root_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="execlt1/Mianshi" />
+      <package value="execlt1/chanl/Product_Consumer" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest8\E$" />
+      <filePath value="$PROJECT_DIR$/chanl/Product_Consumer/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build t/t2" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoInterview" />
+      <working_directory value="$PROJECT_DIR$/t" />
+      <kind value="PACKAGE" />
+      <package value="t/t2" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/t/t2/main.go" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -104,16 +117,15 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
-    <configuration name="execlt1/Mianshi 中的 Test1" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="execlt1 中的 TestNode" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="GoInterview" />
-      <working_directory value="$PROJECT_DIR$/Mianshi" />
-      <root_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="execlt1/Mianshi" />
+      <package value="execlt1" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest1\E$" />
+      <pattern value="^\QTestNode\E$" />
       <method v="2" />
     </configuration>
     <configuration name="execlt1/Mianshi 中的 Test10" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -140,24 +152,13 @@
       <pattern value="^\QTest11\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="execlt1/Mianshi 中的 Test9" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="GoInterview" />
-      <working_directory value="$PROJECT_DIR$/Mianshi" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="execlt1/Mianshi" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTest9\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build t/t2" />
+        <item itemvalue="Go 测试.execlt1 中的 TestNode" />
+        <item itemvalue="Go 构建.go build execlt1/chanl/Product_Consumer" />
         <item itemvalue="Go 测试.execlt1/Mianshi 中的 Test11" />
         <item itemvalue="Go 测试.execlt1/Mianshi 中的 Test10" />
-        <item itemvalue="Go 测试.execlt1/Mianshi 中的 Test9" />
-        <item itemvalue="Go 测试.execlt1/Mianshi 中的 Test1" />
       </list>
     </recent_temporary>
   </component>
